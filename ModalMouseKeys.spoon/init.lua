@@ -32,9 +32,7 @@ end
 --- Returns:
 ---  * The ModalMouseKeys object
 function obj:bindHotkeys(mapping)
-  local toggleMods = mapping["toggle"][1]
-  local toggleKey = mapping["toggle"][2]
-  self.vimouse(toggleMods, toggleKey)
+  self.vimouse(mapping)
   return self
 end
 

@@ -18,7 +18,7 @@
 --
 -- Press <esc> or the configured toggle key to end Vi Mouse mode.
 
-return function(tmod, tkey)
+return function(mapping)
   -- local overlay = nil
   local log = hs.logger.new('vimouse', 'debug')
   local tap = nil
@@ -29,6 +29,9 @@ return function(tmod, tkey)
   local mousepress_time = 0
   local mousepress = 0
   local tapmods = {['cmd']=false, ['ctrl']=false, ['alt']=false, ['shift']=false}
+
+  local tmod = mapping["toggle"][1]
+  local tkey = mapping["toggle"][2]
 
   if type(tmod) == 'string' then
     tapmods[tmod] = true
