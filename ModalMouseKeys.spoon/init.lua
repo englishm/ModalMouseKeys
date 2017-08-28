@@ -12,7 +12,6 @@ obj.author = "Mike English <mike.english@gmail.com>"
 obj.homepage = "https://github.com/englishm/ModalMouseKeys"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
 
--- To begin, we'll simply use our `:init()` to wrap vimouse
 function obj:init()
   local function script_path()
     local str = debug.getinfo(2, "S").source:sub(2)
@@ -20,7 +19,23 @@ function obj:init()
   end
   obj.spoonPath = script_path()
   self.vimouse = dofile(obj.spoonPath..'/vimouse.lua')
-  self.vimouse('cmd', 'm')
+end
+
+--- ModalMouseKeys:bindHotkeys(mapping)
+--- Method
+--- Binds hotkeys for ModalMouseKeys
+---
+--- Parameters:
+---  * mapping - A table containing hotkey modifier/key details for the following items:
+---   * toggle - This will toggle the Mouse Key mode on or off
+---
+--- Returns:
+---  * The ModalMouseKeys object
+function obj:bindHotkeys(mapping)
+  local toggleMods = mapping["toggle"][1]
+  local toggleKey = mapping["toggle"][2]
+  self.vimouse(toggleMods, toggleKey)
+  return self
 end
 
 return obj
