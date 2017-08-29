@@ -28,6 +28,10 @@ end
 --- Parameters:
 ---  * mapping - A table containing hotkey modifier/key details for the following items:
 ---   * toggle - This will toggle the Mouse Key mode on or off
+---   * up - This will move the cursor up when in Mouse Key mode
+---   * down - This will move the cursor down when in Mouse Key mode
+---   * left - This will move the cursor left when in Mouse Key mode
+---   * right - This will move the cursor right when in Mouse Key mode
 ---
 --- Returns:
 ---  * The ModalMouseKeys object

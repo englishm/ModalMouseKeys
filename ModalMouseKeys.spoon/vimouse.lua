@@ -33,6 +33,15 @@ return function(mapping)
   local tmod = mapping["toggle"][1]
   local tkey = mapping["toggle"][2]
 
+  local down_pair = mapping["down"] or {{},'j'}
+  local down_key = down_pair[2]
+  local up_pair = mapping["up"] or {{},'k'}
+  local up_key = up_pair[2]
+  local left_pair = mapping["left"] or {{},'h'}
+  local left_key = left_pair[2]
+  local right_pair = mapping["right"] or {{},'l'}
+  local right_key = right_pair[2]
+
   if type(tmod) == 'string' then
     tapmods[tmod] = true
   else
@@ -152,13 +161,13 @@ return function(mapping)
           scroll_y_delta = math.floor(1 * scroll_mul)
         end
         log.d("Scrolling", scrolling, '-', scroll_y_delta)
-      elseif code == keycodes['h'] then
+      elseif code == keycodes[left_key] then
         x_delta = step * mul * -1
-      elseif code == keycodes['l'] then
+      elseif code == keycodes[right_key] then
         x_delta = step * mul
-      elseif code == keycodes['j'] then
+      elseif code == keycodes[down_key] then
         y_delta = step * mul
-      elseif code == keycodes['k'] then
+      elseif code == keycodes[up_key] then
         y_delta = step * mul * -1
       end
 
